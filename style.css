@@ -1,6 +1,6 @@
-/* =========================================
-   GRUNDLAGEN
-========================================= */
+/* =================================================
+   RESET
+================================================= */
 
 * {
     box-sizing: border-box;
@@ -10,186 +10,233 @@ html {
     scroll-behavior: smooth;
 }
 
-:root {
-    --blau: #009fe3;
-    --blau-hell: #38c2ff;
-    --dunkel: #030b14;
-    --dunkel-2: #071625;
-    --dunkel-3: #0a1d30;
-    --weiss: #ffffff;
-    --grau: #8fa4b5;
-}
-
 body {
     margin: 0;
+    padding: 0;
 
-    min-height: 100vh;
+    font-family: 'Montserrat', Arial, sans-serif;
 
-    color: var(--weiss);
+    color: #111827;
 
-    font-family: 'Montserrat', sans-serif;
-
-    background:
-        radial-gradient(
-            circle at 10% 0%,
-            rgba(0, 159, 227, 0.14),
-            transparent 32%
-        ),
-        radial-gradient(
-            circle at 90% 80%,
-            rgba(0, 159, 227, 0.07),
-            transparent 30%
-        ),
-        var(--dunkel);
-
-    overflow-x: hidden;
+    background: #dfe0e2;
 }
 
 
-/* =========================================
-   HEADER
-========================================= */
+/* =================================================
+   FARBEN
+================================================= */
 
-.header {
-    height: 155px;
+:root {
+    --blue: #009fe3;
+    --blue-dark: #006fa8;
+    --blue-light: #39bcf2;
 
-    background:
-        linear-gradient(
-            135deg,
-            #081b2e,
-            #030b14
-        );
+    --dark: #061522;
 
-    border-bottom: 2px solid var(--blau);
-
-    box-shadow:
-        0 0 25px rgba(0, 159, 227, 0.18);
+    --gray-bg: #dedfe1;
+    --gray-line: #d4d4d4;
 }
 
 
-.header-inhalt {
-    width: min(1250px, 92%);
+/* =================================================
+   TOP HEADER
+================================================= */
+
+.top-header {
+    height: 125px;
+
+    background: #ffffff;
+
+    position: relative;
+
+    z-index: 10;
+}
+
+
+.top-header-inner {
+    width: 1180px;
+
+    max-width: calc(100% - 50px);
 
     height: 100%;
 
-    margin: auto;
+    margin: 0 auto;
 
     display: flex;
 
     align-items: center;
 
-    gap: 25px;
+    justify-content: space-between;
 }
 
 
-/* =========================================
-   LOGO
-========================================= */
+/* =================================================
+   LOGO + NAME
+================================================= */
+
+.brand {
+    display: flex;
+
+    align-items: center;
+
+    gap: 22px;
+
+    height: 100%;
+}
+
 
 .logo {
     width: 105px;
+
     height: 105px;
 
     object-fit: contain;
 
+    display: block;
+
     flex-shrink: 0;
+
+    position: relative;
+
+    z-index: 30;
 
     filter:
         drop-shadow(
-            0 0 10px rgba(0, 159, 227, 0.75)
-        )
-        drop-shadow(
-            0 0 25px rgba(0, 159, 227, 0.25)
+            0 4px 7px rgba(0, 0, 0, 0.15)
         );
-
-    transition: transform 0.25s ease;
-}
-
-.logo:hover {
-    transform: scale(1.05);
 }
 
 
-/* =========================================
-   TITEL
-========================================= */
-
-.seiten-titel {
+.brand-text {
     display: flex;
 
     flex-direction: column;
+
+    justify-content: center;
 }
 
 
-.seiten-titel span {
-    margin-bottom: 4px;
-
-    color: var(--blau-hell);
+.brand-text span {
+    color: #5c6872;
 
     font-family: 'Oswald', sans-serif;
 
     font-size: 11px;
 
-    font-weight: 600;
+    letter-spacing: 3px;
 
-    letter-spacing: 4px;
+    margin-bottom: 3px;
 }
 
 
-.seiten-titel h1 {
+.brand-text h1 {
     margin: 0;
 
     font-family: 'Bebas Neue', sans-serif;
 
-    font-size: clamp(48px, 5vw, 72px);
+    font-size: 48px;
 
     line-height: 0.9;
 
-    letter-spacing: 2px;
+    letter-spacing: 1px;
+
+    color: #101820;
 
     white-space: nowrap;
 }
 
 
-.seiten-titel strong {
-    color: var(--blau);
+.brand-text strong {
+    color: var(--blue);
 
     font-weight: 400;
-
-    text-shadow:
-        0 0 12px rgba(0, 159, 227, 0.7),
-        0 0 30px rgba(0, 159, 227, 0.3);
 }
 
 
-/* =========================================
-   NAVIGATION
-========================================= */
+/* =================================================
+   RECHTS OBEN
+================================================= */
 
-.navigation {
-    height: 60px;
+.top-links {
+    display: flex;
 
-    position: sticky;
+    align-items: center;
 
-    top: 0;
+    gap: 28px;
 
-    z-index: 20;
-
-    background: rgba(2, 8, 15, 0.96);
-
-    border-bottom:
-        1px solid rgba(0, 159, 227, 0.18);
-
-    backdrop-filter: blur(10px);
+    padding-top: 4px;
 }
 
 
-.nav-inhalt {
-    width: min(1250px, 92%);
+.top-links a {
+    color: #68737c;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    transition: 0.2s ease;
+}
+
+
+.top-links a:hover {
+    color: var(--blue);
+}
+
+
+/* =================================================
+   BLAUER NAVIGATIONS-BALKEN
+================================================= */
+
+.main-nav {
+    height: 64px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #0089c7,
+            #009fe3
+        );
+
+    position: relative;
+
+    z-index: 5;
+
+    box-shadow:
+        0 3px 12px rgba(0, 0, 0, 0.12);
+}
+
+
+.nav-inner {
+    width: 1180px;
+
+    max-width: calc(100% - 50px);
 
     height: 100%;
 
-    margin: auto;
+    margin: 0 auto;
+
+    display: flex;
+
+    align-items: center;
+}
+
+
+/*
+    Platz links für das Logo.
+    Dadurch beginnt die Navigation
+    nicht direkt unter dem Logo.
+*/
+
+.nav-space {
+    width: 130px;
+
+    flex-shrink: 0;
+}
+
+
+.nav-links {
+    height: 100%;
 
     display: flex;
 
@@ -199,8 +246,8 @@ body {
 }
 
 
-.nav-inhalt a {
-    height: 60px;
+.nav-links a {
+    height: 100%;
 
     padding: 0 25px;
 
@@ -210,13 +257,13 @@ body {
 
     position: relative;
 
-    color: #8da3b5;
+    color: white;
 
     text-decoration: none;
 
     font-family: 'Oswald', sans-serif;
 
-    font-size: 16px;
+    font-size: 17px;
 
     font-weight: 600;
 
@@ -226,167 +273,155 @@ body {
 }
 
 
-.nav-inhalt a:hover {
-    color: white;
-
+.nav-links a:hover {
     background:
-        rgba(0, 159, 227, 0.08);
+        rgba(255, 255, 255, 0.1);
 }
 
 
-.nav-inhalt a:first-child {
-    color: white;
+.nav-links a.active {
+    background:
+        rgba(0, 0, 0, 0.08);
 }
 
 
-.nav-inhalt a:first-child::after {
+.nav-links a.active::after {
     content: "";
 
     position: absolute;
 
-    left: 15px;
-    right: 15px;
     bottom: 0;
 
-    height: 3px;
+    left: 18px;
 
-    background: var(--blau);
+    right: 18px;
 
-    box-shadow:
-        0 0 10px var(--blau);
+    height: 4px;
+
+    background: white;
 }
 
 
-/* =========================================
-   HAUPTBEREICH
-========================================= */
+/* =================================================
+   SEITEN-HINTERGRUND
+================================================= */
 
-.hauptbereich {
-    width: min(1100px, 92%);
+.page {
+    width: 100%;
 
-    margin: 45px auto 80px;
-}
+    min-height: 700px;
 
-
-/* =========================================
-   BEREICH
-========================================= */
-
-.bereich {
-    margin-bottom: 30px;
-
-    padding: 35px;
+    padding: 60px 0 90px;
 
     background:
         linear-gradient(
-            145deg,
-            rgba(8, 28, 48, 0.97),
-            rgba(3, 13, 23, 0.97)
+            180deg,
+            #dfe0e2 0%,
+            #d5d6d8 100%
         );
+}
 
-    border:
-        1px solid rgba(0, 159, 227, 0.15);
 
-    border-radius: 12px;
+/* =================================================
+   WEISSER CONTENT-BLOCK
+================================================= */
+
+.content-box {
+    width: 1180px;
+
+    max-width: calc(100% - 50px);
+
+    margin: 0 auto 35px;
+
+    padding: 42px 42px 50px;
+
+    background: #ffffff;
 
     box-shadow:
-        0 15px 45px rgba(0, 0, 0, 0.28);
+        0 5px 20px rgba(0, 0, 0, 0.08);
 }
 
 
-/* =========================================
-   BEREICH TITEL
-========================================= */
+/* =================================================
+   ÜBERSCHRIFT
+================================================= */
 
-.bereich-titel {
-    display: flex;
-
-    align-items: flex-end;
-
-    gap: 25px;
-
-    margin-bottom: 30px;
-}
-
-
-.bereich-titel div {
-    flex-shrink: 0;
-}
-
-
-.bereich-titel span {
-    display: block;
-
-    margin-bottom: 4px;
-
-    color: var(--blau);
-
-    font-family: 'Oswald', sans-serif;
-
-    font-size: 11px;
-
-    font-weight: 600;
-
-    letter-spacing: 3px;
-}
-
-
-.bereich-titel h2 {
+.content-box h2 {
     margin: 0;
+
+    color: #102438;
 
     font-family: 'Bebas Neue', sans-serif;
 
-    font-size: 52px;
+    font-size: 38px;
 
-    line-height: 0.9;
-
-    letter-spacing: 2px;
+    letter-spacing: 0.5px;
 }
 
 
-.bereich-titel::after {
-    content: "";
+.line {
+    width: 100%;
 
-    flex: 1;
+    height: 1px;
 
-    height: 2px;
+    margin-top: 18px;
 
-    margin-bottom: 5px;
-
-    background:
-        linear-gradient(
-            90deg,
-            var(--blau),
-            transparent
-        );
-
-    box-shadow:
-        0 0 8px rgba(0, 159, 227, 0.35);
+    background: var(--gray-line);
 }
 
 
-/* =========================================
-   BILDERGALERIE
-========================================= */
+/* =================================================
+   UNTER-NAVIGATION
+================================================= */
 
-.bildergalerie {
-    display: grid;
+.subnav {
+    height: 60px;
 
-    grid-template-columns:
-        repeat(3, 1fr);
+    display: flex;
+
+    align-items: center;
 
     gap: 18px;
+
+    border-bottom:
+        1px solid var(--gray-line);
+
+    color: #7a858d;
 }
 
 
-/* =========================================
-   LEERE GALERIE
-========================================= */
+.subnav a {
+    color: #66727b;
 
-.keine-bilder {
-    grid-column: 1 / -1;
+    text-decoration: none;
 
-    min-height: 240px;
+    font-family: 'Roboto Condensed', Arial, sans-serif;
+
+    font-size: 14px;
+}
+
+
+.subnav a:hover {
+    color: var(--blue);
+}
+
+
+.subnav span {
+    color: #b0b0b0;
+}
+
+
+/* =================================================
+   BILDER
+================================================= */
+
+.bilder-content {
+    padding-top: 35px;
+}
+
+
+.empty {
+    min-height: 300px;
 
     display: flex;
 
@@ -396,331 +431,348 @@ body {
 
     justify-content: center;
 
-    border:
-        1px dashed rgba(0, 159, 227, 0.3);
+    border: 1px solid #e1e3e5;
 
-    border-radius: 10px;
-
-    background:
-        rgba(0, 159, 227, 0.025);
-
-    transition: 0.25s ease;
+    background: #fafafa;
 }
 
 
-.keine-bilder:hover {
-    border-color: var(--blau);
+.empty-icon {
+    width: 55px;
 
-    background:
-        rgba(0, 159, 227, 0.05);
+    height: 55px;
 
-    box-shadow:
-        inset 0 0 30px rgba(0, 159, 227, 0.04);
-}
-
-
-.plus {
-    width: 50px;
-    height: 50px;
+    border-radius: 50%;
 
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
+    color: var(--blue);
+
+    border: 2px solid var(--blue);
+
+    font-size: 28px;
+
     margin-bottom: 15px;
-
-    border:
-        1px solid rgba(0, 159, 227, 0.45);
-
-    border-radius: 50%;
-
-    color: var(--blau);
-
-    font-size: 27px;
-
-    box-shadow:
-        0 0 15px rgba(0, 159, 227, 0.15);
 }
 
 
-.keine-bilder h3 {
-    margin: 0 0 5px;
+.empty h3 {
+    margin: 0;
 
     font-family: 'Oswald', sans-serif;
 
-    font-size: 17px;
+    font-size: 20px;
 
-    letter-spacing: 2px;
+    color: #182b3b;
+
+    letter-spacing: 1px;
 }
 
 
-.keine-bilder p {
-    margin: 0;
+.empty p {
+    margin: 7px 0 0;
 
-    color: #71899c;
+    color: #89939a;
+
+    font-size: 13px;
+}
+
+
+/* =================================================
+   AKTUELLES
+================================================= */
+
+.aktuelles {
+    padding-bottom: 35px;
+}
+
+
+.news {
+    min-height: 180px;
+
+    display: grid;
+
+    grid-template-columns: 120px 1fr 180px;
+
+    gap: 30px;
+
+    align-items: center;
+
+    padding: 35px 0;
+
+    border-bottom:
+        1px solid #dddddd;
+}
+
+
+.news-date {
+    color: var(--blue);
+
+    font-family: 'Oswald', sans-serif;
+
+    font-size: 15px;
+}
+
+
+.news-text span {
+    color: #89939a;
+
+    font-family: 'Oswald', sans-serif;
 
     font-size: 12px;
+
+    letter-spacing: 1px;
 }
 
 
-/* =========================================
-   BILDER - WENN DU SIE EINSETZT
-========================================= */
+.news-text h3 {
+    margin: 7px 0;
 
-.bild {
-    height: 250px;
+    color: #122438;
 
-    overflow: hidden;
+    font-family: 'Oswald', sans-serif;
 
-    border-radius: 10px;
-
-    border:
-        1px solid rgba(0, 159, 227, 0.2);
-
-    background: #071321;
+    font-size: 23px;
 }
 
 
-.bild img {
-    width: 100%;
-    height: 100%;
+.news-text p {
+    margin: 0;
 
-    object-fit: cover;
+    color: #58656f;
 
-    display: block;
+    font-size: 14px;
 
-    transition: transform 0.4s ease;
+    line-height: 1.6;
 }
 
 
-.bild:hover img {
-    transform: scale(1.05);
-}
-
-
-/* =========================================
-   AKTUELLES
-========================================= */
-
-.aktuelles-box {
-    min-height: 95px;
+.news-image {
+    height: 125px;
 
     display: flex;
 
     align-items: center;
 
-    gap: 18px;
+    justify-content: center;
 
-    padding: 20px 25px;
+    background: #f3f4f5;
 
-    border:
-        1px solid rgba(0, 159, 227, 0.2);
-
-    border-radius: 9px;
-
-    background:
-        rgba(0, 159, 227, 0.05);
-
-    transition: 0.25s ease;
+    overflow: hidden;
 }
 
 
-.aktuelles-box:hover {
-    border-color:
-        rgba(0, 159, 227, 0.45);
+.news-image img {
+    width: 95px;
 
-    box-shadow:
-        0 0 25px rgba(0, 159, 227, 0.07);
+    height: 95px;
+
+    object-fit: contain;
 }
 
 
-.punkt {
-    width: 11px;
-    height: 11px;
-
-    flex-shrink: 0;
-
-    border-radius: 50%;
-
-    background: var(--blau);
-
-    box-shadow:
-        0 0 10px var(--blau),
-        0 0 22px rgba(0, 159, 227, 0.45);
-}
-
-
-.news-label {
-    color: var(--blau);
-
-    font-family: 'Oswald', sans-serif;
-
-    font-size: 10px;
-
-    letter-spacing: 2px;
-}
-
-
-.aktuelles-box h3 {
-    margin: 4px 0 0;
-
-    font-family: 'Bebas Neue', sans-serif;
-
-    font-size: 30px;
-
-    font-weight: 400;
-}
-
-
-/* =========================================
+/* =================================================
    FOOTER
-========================================= */
+================================================= */
 
 footer {
-    min-height: 80px;
+    background: #07131f;
 
-    padding: 15px 5%;
+    min-height: 100px;
+
+    color: #83919c;
+}
+
+
+.footer-inner {
+    width: 1180px;
+
+    max-width: calc(100% - 50px);
+
+    min-height: 100px;
+
+    margin: 0 auto;
 
     display: flex;
 
     align-items: center;
 
     justify-content: space-between;
-
-    background: #02070d;
-
-    border-top:
-        1px solid rgba(0, 159, 227, 0.15);
-
-    color: #667d90;
-
-    font-size: 12px;
 }
 
 
-footer img {
-    width: 45px;
-    height: 45px;
+.footer-inner img {
+    width: 55px;
+
+    height: 55px;
 
     object-fit: contain;
-
-    filter:
-        drop-shadow(
-            0 0 8px rgba(0, 159, 227, 0.5)
-        );
 }
 
 
-/* =========================================
+/* =================================================
    TABLET
-========================================= */
+================================================= */
 
-@media (max-width: 850px) {
+@media (max-width: 900px) {
 
-    .bildergalerie {
-        grid-template-columns:
-            repeat(2, 1fr);
+    .top-links {
+        display: none;
+    }
+
+
+    .top-header-inner,
+    .nav-inner,
+    .content-box,
+    .footer-inner {
+        max-width: calc(100% - 30px);
+    }
+
+
+    .news {
+        grid-template-columns: 90px 1fr 130px;
     }
 
 }
 
 
-/* =========================================
+/* =================================================
    HANDY
-========================================= */
+================================================= */
 
 @media (max-width: 600px) {
 
-    .header {
-        height: 115px;
+    .top-header {
+        height: 105px;
     }
 
 
-    .header-inhalt {
-        width: 94%;
+    .top-header-inner {
+        width: 100%;
 
-        gap: 15px;
+        padding: 0 15px;
+
+        max-width: none;
+    }
+
+
+    .brand {
+        gap: 12px;
     }
 
 
     .logo {
         width: 72px;
+
         height: 72px;
     }
 
 
-    .seiten-titel span {
+    .brand-text span {
         font-size: 8px;
 
         letter-spacing: 2px;
     }
 
 
-    .seiten-titel h1 {
-        font-size: 36px;
+    .brand-text h1 {
+        font-size: 32px;
 
         white-space: normal;
     }
 
 
-    .navigation {
+    .main-nav {
         height: 55px;
     }
 
 
-    .nav-inhalt {
+    .nav-inner {
+        width: 100%;
+
+        max-width: none;
+
+        padding: 0 15px;
+    }
+
+
+    .nav-space {
+        display: none;
+    }
+
+
+    .nav-links {
         width: 100%;
     }
 
 
-    .nav-inhalt a {
-        height: 55px;
+    .nav-links a {
+        flex: 1;
 
-        padding: 0 18px;
+        justify-content: center;
+
+        padding: 0 10px;
 
         font-size: 14px;
     }
 
 
-    .hauptbereich {
-        width: 94%;
-
-        margin-top: 25px;
+    .page {
+        padding: 25px 0 50px;
     }
 
 
-    .bereich {
-        padding: 25px 18px;
+    .content-box {
+        max-width: calc(100% - 20px);
+
+        padding: 25px 18px 30px;
     }
 
 
-    .bereich-titel {
+    .content-box h2 {
+        font-size: 34px;
+    }
+
+
+    .subnav {
+        gap: 10px;
+
+        overflow-x: auto;
+
+        white-space: nowrap;
+    }
+
+
+    .subnav a {
+        font-size: 12px;
+    }
+
+
+    .empty {
+        min-height: 220px;
+    }
+
+
+    .news {
+        grid-template-columns: 1fr;
+
         gap: 15px;
     }
 
 
-    .bereich-titel h2 {
-        font-size: 42px;
+    .news-image {
+        width: 100%;
     }
 
 
-    .bildergalerie {
-        grid-template-columns: 1fr;
-    }
+    .footer-inner {
+        min-height: 90px;
 
-
-    .keine-bilder {
-        min-height: 200px;
-    }
-
-
-    footer {
-        flex-direction: column;
-
-        justify-content: center;
-
-        gap: 8px;
+        max-width: calc(100% - 30px);
     }
 
 }
