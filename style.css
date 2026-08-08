@@ -12,65 +12,37 @@ html {
 
 :root {
     --blau: #009fe3;
-    --blau-hell: #42c5ff;
-    --dunkel: #030a13;
-    --dunkel2: #071525;
+    --blau-hell: #38c2ff;
+    --dunkel: #030b14;
+    --dunkel-2: #071625;
+    --dunkel-3: #0a1d30;
     --weiss: #ffffff;
-    --grau: #91a5b6;
+    --grau: #8fa4b5;
 }
 
 body {
-
     margin: 0;
 
     min-height: 100vh;
 
-    color: white;
+    color: var(--weiss);
 
     font-family: 'Montserrat', sans-serif;
 
     background:
         radial-gradient(
-            circle at 15% 0%,
-            rgba(0,159,227,0.16),
-            transparent 30%
+            circle at 10% 0%,
+            rgba(0, 159, 227, 0.14),
+            transparent 32%
         ),
         radial-gradient(
-            circle at 90% 50%,
-            rgba(0,100,255,0.08),
+            circle at 90% 80%,
+            rgba(0, 159, 227, 0.07),
             transparent 30%
         ),
-        #030a13;
+        var(--dunkel);
 
     overflow-x: hidden;
-}
-
-
-/* =========================================
-   HINTERGRUNDBILD
-========================================= */
-
-body::before {
-
-    content: "";
-
-    position: fixed;
-
-    inset: 0;
-
-    z-index: -2;
-
-    background:
-        linear-gradient(
-            rgba(3,10,19,0.91),
-            rgba(3,10,19,0.96)
-        ),
-        url("hintergrund.jpg");
-
-    background-size: cover;
-
-    background-position: center;
-
 }
 
 
@@ -79,35 +51,24 @@ body::before {
 ========================================= */
 
 .header {
-
-    height: 150px;
-
-    width: 100%;
-
-    position: relative;
+    height: 155px;
 
     background:
         linear-gradient(
             135deg,
-            #071a2d,
-            #030b15
+            #081b2e,
+            #030b14
         );
 
     border-bottom: 2px solid var(--blau);
 
     box-shadow:
-        0 0 25px rgba(0,159,227,0.18);
-
+        0 0 25px rgba(0, 159, 227, 0.18);
 }
 
 
-/* =========================================
-   HEADER INHALT
-========================================= */
-
 .header-inhalt {
-
-    width: min(1400px, 92%);
+    width: min(1250px, 92%);
 
     height: 100%;
 
@@ -118,7 +79,6 @@ body::before {
     align-items: center;
 
     gap: 25px;
-
 }
 
 
@@ -126,58 +86,27 @@ body::before {
    LOGO
 ========================================= */
 
-.logo-link {
-
-    width: 105px;
-
-    height: 105px;
-
-    flex-shrink: 0;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-}
-
-
 .logo {
-
     width: 105px;
-
     height: 105px;
 
     object-fit: contain;
 
-    display: block;
+    flex-shrink: 0;
 
     filter:
         drop-shadow(
-            0 0 10px rgba(0,159,227,0.7)
+            0 0 10px rgba(0, 159, 227, 0.75)
         )
         drop-shadow(
-            0 0 25px rgba(0,159,227,0.3)
+            0 0 25px rgba(0, 159, 227, 0.25)
         );
 
-    transition: 0.3s ease;
-
+    transition: transform 0.25s ease;
 }
 
-
 .logo:hover {
-
-    transform: scale(1.06);
-
-    filter:
-        drop-shadow(
-            0 0 15px rgba(0,159,227,1)
-        )
-        drop-shadow(
-            0 0 30px rgba(0,159,227,0.5)
-        );
-
+    transform: scale(1.05);
 }
 
 
@@ -185,18 +114,15 @@ body::before {
    TITEL
 ========================================= */
 
-.titel {
-
+.seiten-titel {
     display: flex;
 
     flex-direction: column;
-
-    justify-content: center;
-
 }
 
 
-.titel span {
+.seiten-titel span {
+    margin-bottom: 4px;
 
     color: var(--blau-hell);
 
@@ -207,14 +133,10 @@ body::before {
     font-weight: 600;
 
     letter-spacing: 4px;
-
-    margin-bottom: 3px;
-
 }
 
 
-.titel h1 {
-
+.seiten-titel h1 {
     margin: 0;
 
     font-family: 'Bebas Neue', sans-serif;
@@ -226,20 +148,17 @@ body::before {
     letter-spacing: 2px;
 
     white-space: nowrap;
-
 }
 
 
-.titel h1 b {
-
+.seiten-titel strong {
     color: var(--blau);
 
     font-weight: 400;
 
     text-shadow:
-        0 0 15px rgba(0,159,227,0.55),
-        0 0 35px rgba(0,159,227,0.2);
-
+        0 0 12px rgba(0, 159, 227, 0.7),
+        0 0 30px rgba(0, 159, 227, 0.3);
 }
 
 
@@ -248,29 +167,25 @@ body::before {
 ========================================= */
 
 .navigation {
-
     height: 60px;
 
     position: sticky;
 
     top: 0;
 
-    z-index: 100;
+    z-index: 20;
 
-    background:
-        rgba(2,8,15,0.94);
-
-    backdrop-filter: blur(15px);
+    background: rgba(2, 8, 15, 0.96);
 
     border-bottom:
-        1px solid rgba(0,159,227,0.15);
+        1px solid rgba(0, 159, 227, 0.18);
 
+    backdrop-filter: blur(10px);
 }
 
 
 .nav-inhalt {
-
-    width: min(1400px, 92%);
+    width: min(1250px, 92%);
 
     height: 100%;
 
@@ -281,12 +196,10 @@ body::before {
     align-items: center;
 
     gap: 5px;
-
 }
 
 
-.nav-link {
-
+.nav-inhalt a {
     height: 60px;
 
     padding: 0 25px;
@@ -297,59 +210,50 @@ body::before {
 
     position: relative;
 
-    color: #8297a8;
+    color: #8da3b5;
 
     text-decoration: none;
 
     font-family: 'Oswald', sans-serif;
 
-    font-size: 15px;
+    font-size: 16px;
 
     font-weight: 600;
 
     letter-spacing: 1px;
 
-    transition: 0.25s ease;
-
+    transition: 0.2s ease;
 }
 
 
-.nav-link:hover {
-
+.nav-inhalt a:hover {
     color: white;
 
     background:
-        rgba(0,159,227,0.08);
-
+        rgba(0, 159, 227, 0.08);
 }
 
 
-.nav-link.aktiv {
-
+.nav-inhalt a:first-child {
     color: white;
-
 }
 
 
-.nav-link.aktiv::after {
-
+.nav-inhalt a:first-child::after {
     content: "";
 
     position: absolute;
 
-    bottom: 0;
-
     left: 15px;
-
     right: 15px;
+    bottom: 0;
 
     height: 3px;
 
     background: var(--blau);
 
     box-shadow:
-        0 0 12px var(--blau);
-
+        0 0 10px var(--blau);
 }
 
 
@@ -358,60 +262,62 @@ body::before {
 ========================================= */
 
 .hauptbereich {
+    width: min(1100px, 92%);
 
-    width: min(1150px, 92%);
-
-    margin: 50px auto 80px;
-
+    margin: 45px auto 80px;
 }
 
 
 /* =========================================
-   SECTION
+   BEREICH
 ========================================= */
 
-.section {
-
+.bereich {
     margin-bottom: 30px;
 
     padding: 35px;
 
-    border-radius: 14px;
-
     background:
         linear-gradient(
             145deg,
-            rgba(7,27,47,0.96),
-            rgba(3,13,24,0.96)
+            rgba(8, 28, 48, 0.97),
+            rgba(3, 13, 23, 0.97)
         );
 
     border:
-        1px solid rgba(0,159,227,0.15);
+        1px solid rgba(0, 159, 227, 0.15);
+
+    border-radius: 12px;
 
     box-shadow:
-        0 15px 45px rgba(0,0,0,0.3);
-
+        0 15px 45px rgba(0, 0, 0, 0.28);
 }
 
 
 /* =========================================
-   SECTION HEADER
+   BEREICH TITEL
 ========================================= */
 
-.section-header {
-
+.bereich-titel {
     display: flex;
 
-    align-items: end;
+    align-items: flex-end;
 
     gap: 25px;
 
     margin-bottom: 30px;
-
 }
 
 
-.section-header span {
+.bereich-titel div {
+    flex-shrink: 0;
+}
+
+
+.bereich-titel span {
+    display: block;
+
+    margin-bottom: 4px;
 
     color: var(--blau);
 
@@ -422,13 +328,11 @@ body::before {
     font-weight: 600;
 
     letter-spacing: 3px;
-
 }
 
 
-.section-header h2 {
-
-    margin: 3px 0 0;
+.bereich-titel h2 {
+    margin: 0;
 
     font-family: 'Bebas Neue', sans-serif;
 
@@ -437,15 +341,15 @@ body::before {
     line-height: 0.9;
 
     letter-spacing: 2px;
-
 }
 
 
-.blaue-linie {
-
-    height: 2px;
+.bereich-titel::after {
+    content: "";
 
     flex: 1;
+
+    height: 2px;
 
     margin-bottom: 5px;
 
@@ -457,29 +361,29 @@ body::before {
         );
 
     box-shadow:
-        0 0 8px rgba(0,159,227,0.4);
-
+        0 0 8px rgba(0, 159, 227, 0.35);
 }
 
 
 /* =========================================
-   GALERIE
+   BILDERGALERIE
 ========================================= */
 
 .bildergalerie {
-
     display: grid;
 
     grid-template-columns:
         repeat(3, 1fr);
 
     gap: 18px;
-
 }
 
 
-.empty-gallery {
+/* =========================================
+   LEERE GALERIE
+========================================= */
 
+.keine-bilder {
     grid-column: 1 / -1;
 
     min-height: 240px;
@@ -493,44 +397,41 @@ body::before {
     justify-content: center;
 
     border:
-        1px dashed rgba(0,159,227,0.3);
+        1px dashed rgba(0, 159, 227, 0.3);
 
     border-radius: 10px;
 
     background:
-        rgba(0,159,227,0.025);
+        rgba(0, 159, 227, 0.025);
 
-    transition: 0.3s ease;
-
+    transition: 0.25s ease;
 }
 
 
-.empty-gallery:hover {
-
+.keine-bilder:hover {
     border-color: var(--blau);
 
     background:
-        rgba(0,159,227,0.06);
+        rgba(0, 159, 227, 0.05);
 
     box-shadow:
-        inset 0 0 30px rgba(0,159,227,0.04);
-
+        inset 0 0 30px rgba(0, 159, 227, 0.04);
 }
 
 
 .plus {
-
     width: 50px;
-
     height: 50px;
 
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
-    border: 1px solid rgba(0,159,227,0.5);
+    margin-bottom: 15px;
+
+    border:
+        1px solid rgba(0, 159, 227, 0.45);
 
     border-radius: 50%;
 
@@ -538,16 +439,12 @@ body::before {
 
     font-size: 27px;
 
-    margin-bottom: 15px;
-
     box-shadow:
-        0 0 18px rgba(0,159,227,0.15);
-
+        0 0 15px rgba(0, 159, 227, 0.15);
 }
 
 
-.empty-gallery h3 {
-
+.keine-bilder h3 {
     margin: 0 0 5px;
 
     font-family: 'Oswald', sans-serif;
@@ -555,58 +452,50 @@ body::before {
     font-size: 17px;
 
     letter-spacing: 2px;
-
 }
 
 
-.empty-gallery p {
-
+.keine-bilder p {
     margin: 0;
 
-    color: #6f879a;
+    color: #71899c;
 
     font-size: 12px;
-
 }
 
 
 /* =========================================
-   ECHTE BILDER
+   BILDER - WENN DU SIE EINSETZT
 ========================================= */
 
 .bild {
-
     height: 250px;
-
-    position: relative;
 
     overflow: hidden;
 
     border-radius: 10px;
 
     border:
-        1px solid rgba(0,159,227,0.2);
+        1px solid rgba(0, 159, 227, 0.2);
 
+    background: #071321;
 }
 
 
 .bild img {
-
     width: 100%;
-
     height: 100%;
 
     object-fit: cover;
 
-    transition: 0.4s ease;
+    display: block;
 
+    transition: transform 0.4s ease;
 }
 
 
 .bild:hover img {
-
-    transform: scale(1.06);
-
+    transform: scale(1.05);
 }
 
 
@@ -614,47 +503,41 @@ body::before {
    AKTUELLES
 ========================================= */
 
-.news {
-
-    min-height: 100px;
+.aktuelles-box {
+    min-height: 95px;
 
     display: flex;
 
     align-items: center;
 
-    gap: 20px;
+    gap: 18px;
 
     padding: 20px 25px;
+
+    border:
+        1px solid rgba(0, 159, 227, 0.2);
 
     border-radius: 9px;
 
     background:
-        rgba(0,159,227,0.06);
+        rgba(0, 159, 227, 0.05);
 
-    border:
-        1px solid rgba(0,159,227,0.18);
-
-    transition: 0.3s ease;
-
+    transition: 0.25s ease;
 }
 
 
-.news:hover {
-
+.aktuelles-box:hover {
     border-color:
-        rgba(0,159,227,0.45);
+        rgba(0, 159, 227, 0.45);
 
     box-shadow:
-        0 0 25px rgba(0,159,227,0.08);
-
+        0 0 25px rgba(0, 159, 227, 0.07);
 }
 
 
-.news-punkt {
-
-    width: 12px;
-
-    height: 12px;
+.punkt {
+    width: 11px;
+    height: 11px;
 
     flex-shrink: 0;
 
@@ -663,14 +546,12 @@ body::before {
     background: var(--blau);
 
     box-shadow:
-        0 0 12px var(--blau),
-        0 0 25px rgba(0,159,227,0.5);
-
+        0 0 10px var(--blau),
+        0 0 22px rgba(0, 159, 227, 0.45);
 }
 
 
-.news span {
-
+.news-label {
     color: var(--blau);
 
     font-family: 'Oswald', sans-serif;
@@ -678,12 +559,10 @@ body::before {
     font-size: 10px;
 
     letter-spacing: 2px;
-
 }
 
 
-.news h3 {
-
+.aktuelles-box h3 {
     margin: 4px 0 0;
 
     font-family: 'Bebas Neue', sans-serif;
@@ -691,7 +570,6 @@ body::before {
     font-size: 30px;
 
     font-weight: 400;
-
 }
 
 
@@ -700,10 +578,9 @@ body::before {
 ========================================= */
 
 footer {
-
     min-height: 80px;
 
-    padding: 20px 5%;
+    padding: 15px 5%;
 
     display: flex;
 
@@ -714,28 +591,24 @@ footer {
     background: #02070d;
 
     border-top:
-        1px solid rgba(0,159,227,0.15);
+        1px solid rgba(0, 159, 227, 0.15);
 
-    color: #657c8f;
+    color: #667d90;
 
     font-size: 12px;
-
 }
 
 
 footer img {
-
     width: 45px;
-
     height: 45px;
 
     object-fit: contain;
 
     filter:
         drop-shadow(
-            0 0 8px rgba(0,159,227,0.5)
+            0 0 8px rgba(0, 159, 227, 0.5)
         );
-
 }
 
 
@@ -746,10 +619,8 @@ footer img {
 @media (max-width: 850px) {
 
     .bildergalerie {
-
         grid-template-columns:
             repeat(2, 1fr);
-
     }
 
 }
@@ -762,136 +633,94 @@ footer img {
 @media (max-width: 600px) {
 
     .header {
-
         height: 115px;
-
     }
 
 
     .header-inhalt {
-
         width: 94%;
 
         gap: 15px;
-
-    }
-
-
-    .logo-link {
-
-        width: 75px;
-
-        height: 75px;
-
     }
 
 
     .logo {
-
-        width: 75px;
-
-        height: 75px;
-
+        width: 72px;
+        height: 72px;
     }
 
 
-    .titel span {
-
+    .seiten-titel span {
         font-size: 8px;
 
         letter-spacing: 2px;
-
     }
 
 
-    .titel h1 {
-
+    .seiten-titel h1 {
         font-size: 36px;
 
-        letter-spacing: 1px;
-
         white-space: normal;
-
     }
 
 
     .navigation {
-
         height: 55px;
-
     }
 
 
     .nav-inhalt {
-
         width: 100%;
-
     }
 
 
-    .nav-link {
-
+    .nav-inhalt a {
         height: 55px;
 
         padding: 0 18px;
 
-        font-size: 13px;
-
+        font-size: 14px;
     }
 
 
     .hauptbereich {
-
         width: 94%;
 
         margin-top: 25px;
-
     }
 
 
-    .section {
-
+    .bereich {
         padding: 25px 18px;
-
     }
 
 
-    .section-header {
-
+    .bereich-titel {
         gap: 15px;
-
     }
 
 
-    .section-header h2 {
-
+    .bereich-titel h2 {
         font-size: 42px;
-
     }
 
 
     .bildergalerie {
-
         grid-template-columns: 1fr;
-
     }
 
 
-    .empty-gallery {
-
+    .keine-bilder {
         min-height: 200px;
-
     }
 
 
     footer {
-
         flex-direction: column;
 
         justify-content: center;
 
-        gap: 10px;
-
+        gap: 8px;
     }
 
 }
