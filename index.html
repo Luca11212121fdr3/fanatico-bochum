@@ -7,12 +7,11 @@
 
     <title>Fanatico Bochum</title>
 
-    <!-- Schriftarten -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
-        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap"
         rel="stylesheet"
     >
 
@@ -24,26 +23,33 @@
 
 
     <!-- =========================================
-         HEADER
+         OBERER BEREICH
     ========================================== -->
 
-    <header class="header">
+    <header class="top-header">
 
-        <div class="header-inhalt">
+        <div class="top-header-inner">
 
-            <img
-                src="logo2_2.png"
-                alt="Fanatico Bochum Logo"
-                class="logo"
-            >
+            <div class="brand">
 
-            <div class="seiten-titel">
+                <img
+                    src="logo2_2.png"
+                    alt="Fanatico Bochum Logo"
+                    class="logo"
+                >
 
-                <span>FANSEITE</span>
+                <div class="brand-text">
+                    <span>FANSEITE</span>
+                    <h1>FANATICO <strong>BOCHUM</strong></h1>
+                </div>
 
-                <h1>
-                    FANATICO <strong>BOCHUM</strong>
-                </h1>
+            </div>
+
+
+            <div class="top-links">
+
+                <a href="#bilder">Bilder</a>
+                <a href="#aktuelles">Aktuelles</a>
 
             </div>
 
@@ -54,20 +60,26 @@
 
 
     <!-- =========================================
-         NAVIGATION
+         BLAUE NAVIGATION
     ========================================== -->
 
-    <nav class="navigation">
+    <nav class="main-nav">
 
-        <div class="nav-inhalt">
+        <div class="nav-inner">
 
-            <a href="#bilder">
-                Bilder
-            </a>
+            <div class="nav-space"></div>
 
-            <a href="#aktuelles">
-                Aktuelles
-            </a>
+            <div class="nav-links">
+
+                <a href="#bilder" class="active">
+                    BILDER
+                </a>
+
+                <a href="#aktuelles">
+                    AKTUELLES
+                </a>
+
+            </div>
 
         </div>
 
@@ -76,60 +88,55 @@
 
 
     <!-- =========================================
-         HAUPTBEREICH
+         SEITENINHALT
     ========================================== -->
 
-    <main class="hauptbereich">
+    <main class="page">
 
 
         <!-- =====================================
              BILDER
         ====================================== -->
 
-        <section id="bilder" class="bereich">
+        <section id="bilder" class="content-box">
 
-            <div class="bereich-titel">
+            <h2>Bilder</h2>
 
-                <span>SAISON 05</span>
+            <div class="line"></div>
 
-                <h2>
-                    BILDER
-                </h2>
+
+            <div class="subnav">
+
+                <a href="#bilder">ALLE BILDER</a>
+
+                <span>|</span>
+
+                <a href="#bilder">SAISON 5</a>
+
+                <span>|</span>
+
+                <a href="#aktuelles">AKTUELLES</a>
 
             </div>
 
 
-            <div class="bildergalerie">
+            <div class="bilder-content">
 
+                <div class="empty">
 
-                <!--
-                Hier später deine Bilder einsetzen.
-
-                Beispiel:
-
-                <div class="bild">
-                    <img src="bilder/bild1.jpg" alt="Fanatico Bochum">
-                </div>
-
-                -->
-
-
-                <div class="keine-bilder">
-
-                    <div class="plus">
+                    <div class="empty-icon">
                         +
                     </div>
 
                     <h3>
-                        BILDER KOMMEN BALD
+                        SAISON 5
                     </h3>
 
                     <p>
-                        Saison 5
+                        Bilder kommen bald.
                     </p>
 
                 </div>
-
 
             </div>
 
@@ -141,32 +148,43 @@
              AKTUELLES
         ====================================== -->
 
-        <section id="aktuelles" class="bereich">
+        <section id="aktuelles" class="content-box aktuelles">
 
-            <div class="bereich-titel">
+            <h2>Aktuelles</h2>
 
-                <span>NEWS</span>
-
-                <h2>
-                    AKTUELLES
-                </h2>
-
-            </div>
+            <div class="line"></div>
 
 
-            <div class="aktuelles-box">
+            <div class="news">
 
-                <div class="punkt"></div>
+                <div class="news-date">
+                    2026
+                </div>
 
-                <div>
 
-                    <span class="news-label">
+                <div class="news-text">
+
+                    <span>
                         FANATICO BOCHUM
                     </span>
 
                     <h3>
                         Saison 5
                     </h3>
+
+                    <p>
+                        Alle Neuigkeiten rund um Fanatico Bochum.
+                    </p>
+
+                </div>
+
+
+                <div class="news-image">
+
+                    <img
+                        src="logo2_2.png"
+                        alt="Fanatico Bochum"
+                    >
 
                 </div>
 
@@ -185,18 +203,21 @@
 
     <footer>
 
-        <img
-            src="logo2_2.png"
-            alt="Fanatico Bochum"
-        >
+        <div class="footer-inner">
 
-        <span>
-            © 2026 Fanatico Bochum
-        </span>
+            <img
+                src="logo2_2.png"
+                alt="Fanatico Bochum"
+            >
+
+            <span>
+                © 2026 Fanatico Bochum
+            </span>
+
+        </div>
 
     </footer>
 
 
 </body>
-
 </html>
