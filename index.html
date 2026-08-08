@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Fanatico Bochum</title>
 
-    <!-- Google Fonts -->
+    <!-- =========================================
+         SCHRIFTARTEN
+    ========================================== -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
+
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
@@ -15,28 +22,42 @@
         rel="stylesheet"
     >
 
+    <!-- CSS -->
+
     <link rel="stylesheet" href="style.css">
+
 </head>
+
 
 <body>
 
+
     <!-- =========================================
-         HEADER / HERO
+         HEADER
     ========================================== -->
 
     <header class="header">
 
         <div class="header-glow"></div>
 
+
         <div class="header-inhalt">
 
-            <a href="#" class="logo-link">
+
+            <!-- LOGO -->
+
+            <a href="#start" class="logo-link">
+
                 <img
                     src="logo2_2.png"
                     alt="Fanatico Bochum Logo"
                     class="logo"
                 >
+
             </a>
+
+
+            <!-- SCHRIFTZUG -->
 
             <div class="header-text">
 
@@ -44,10 +65,12 @@
                     DIE FANSEITE
                 </span>
 
+
                 <h1>
                     FANATICO
                     <span>BOCHUM</span>
                 </h1>
+
 
                 <p>
                     Leidenschaft. Zusammenhalt. Bochum.
@@ -60,6 +83,7 @@
     </header>
 
 
+
     <!-- =========================================
          NAVIGATION
     ========================================== -->
@@ -68,24 +92,29 @@
 
         <div class="nav-inhalt">
 
-            <a href="#start" class="nav-link aktiv">
+
+            <a href="#bilder" class="nav-link aktiv">
+
                 <span>01</span>
-                Start
-            </a>
 
-            <a href="#bilder" class="nav-link">
-                <span>02</span>
                 Bilder
+
             </a>
 
-            <a href="#saison" class="nav-link">
-                <span>03</span>
-                Saison 5
+
+            <a href="#aktuelles" class="nav-link">
+
+                <span>02</span>
+
+                Aktuelles
+
             </a>
+
 
         </div>
 
     </nav>
+
 
 
     <!-- =========================================
@@ -95,41 +124,73 @@
     <main id="start" class="hauptbereich">
 
 
-        <!-- HERO CARD -->
+        <!-- =========================================
+             HERO
+        ========================================== -->
 
         <section class="hero-card">
 
+
             <div class="hero-overlay"></div>
 
+
             <div class="hero-content">
+
 
                 <span class="badge">
                     FANATICO BOCHUM
                 </span>
 
+
                 <h2>
+
                     UNSERE
-                    <strong>LEIDENSCHAFT.</strong>
+
+                    <strong>
+                        LEIDENSCHAFT.
+                    </strong>
+
                 </h2>
 
+
                 <p>
+
                     Willkommen bei Fanatico Bochum.
-                    Hier findest du unsere Bilder, Momente
-                    und Erinnerungen aus der Saison.
+                    Hier findest du unsere Bilder,
+                    Momente und Erinnerungen aus
+                    der Saison.
+
                 </p>
 
+
                 <a href="#bilder" class="hero-button">
+
                     BILDER ENTDECKEN
-                    <span>→</span>
+
+                    <span>
+                        →
+                    </span>
+
                 </a>
 
+
             </div>
+
+
+            <!-- LOGO IM HERO -->
 
             <div class="hero-logo">
-                <img src="logo2_2.png" alt="Fanatico Bochum">
+
+                <img
+                    src="logo2_2.png"
+                    alt="Fanatico Bochum"
+                >
+
             </div>
 
+
         </section>
+
 
 
         <!-- =========================================
@@ -138,13 +199,18 @@
 
         <section class="inhalt" id="bilder">
 
+
+            <!-- ÜBERSCHRIFT -->
+
             <div class="section-kopf">
+
 
                 <div>
 
                     <span class="section-label">
-                        02 / GALERIE
+                        01 / GALERIE
                     </span>
+
 
                     <h2>
                         BILDER
@@ -152,12 +218,18 @@
 
                 </div>
 
+
                 <div class="section-line"></div>
+
 
             </div>
 
 
-            <div class="saison-header" id="saison">
+
+            <!-- SAISON -->
+
+            <div class="saison-header">
+
 
                 <div>
 
@@ -165,119 +237,258 @@
                         SAISON 05
                     </span>
 
+
                     <h3>
                         Saison 5 jetzt
                     </h3>
 
                 </div>
 
+
                 <p>
                     Die besten Momente unserer Saison.
                 </p>
 
+
             </div>
+
 
 
             <!-- =========================================
                  BILDERGALERIE
-
-                 Einfach neue Bilder hinzufügen:
-
-                 <div class="bild">
-                     <img src="bilder/bild1.jpg">
-                     <div class="bild-info">
-                         <span>Saison 5</span>
-                         <strong>Fanatico Bochum</strong>
-                     </div>
-                 </div>
-
             ========================================== -->
 
             <div class="bildergalerie">
 
+
+                <!--
+                =========================================
+                BEISPIEL FÜR BILDER
+
+                Wenn du Bilder hast, kannst du diesen
+                leeren Bereich löschen und stattdessen
+                z.B. folgendes benutzen:
+
+                <div class="bild">
+
+                    <img
+                        src="bilder/bild1.jpg"
+                        alt="Fanatico Bochum Saison 5"
+                    >
+
+                    <div class="bild-info">
+
+                        <span>
+                            Saison 5
+                        </span>
+
+                        <strong>
+                            Fanatico Bochum
+                        </strong>
+
+                    </div>
+
+                </div>
+
+                =========================================
+                -->
+
+
                 <div class="empty-gallery">
+
 
                     <div class="empty-icon">
                         +
                     </div>
 
+
                     <h4>
                         BILDER KOMMEN BALD
                     </h4>
+
 
                     <p>
                         Hier werden die Bilder der Saison 5 erscheinen.
                     </p>
 
+
                 </div>
 
+
             </div>
+
 
         </section>
 
 
+
         <!-- =========================================
-             INFO CARDS
+             AKTUELLES
+        ========================================== -->
+
+        <section class="aktuelles" id="aktuelles">
+
+
+            <!-- ÜBERSCHRIFT -->
+
+            <div class="section-kopf">
+
+
+                <div>
+
+                    <span class="section-label">
+                        02 / NEWS
+                    </span>
+
+
+                    <h2>
+                        AKTUELLES
+                    </h2>
+
+                </div>
+
+
+                <div class="section-line"></div>
+
+
+            </div>
+
+
+
+            <!-- NEWS -->
+
+            <div class="news-card">
+
+
+                <div class="news-icon">
+                    ★
+                </div>
+
+
+                <div class="news-content">
+
+
+                    <span class="news-label">
+                        FANATICO BOCHUM
+                    </span>
+
+
+                    <h3>
+                        Saison 5 ist da!
+                    </h3>
+
+
+                    <p>
+
+                        Hier findest du künftig aktuelle
+                        Neuigkeiten, Infos und besondere
+                        Momente rund um Fanatico Bochum.
+
+                    </p>
+
+
+                </div>
+
+
+                <div class="news-arrow">
+                    →
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =========================================
+             INFO KARTEN
         ========================================== -->
 
         <section class="info-grid">
 
+
             <div class="info-card">
+
 
                 <span class="info-number">
                     01
                 </span>
 
+
                 <h3>
                     FANATICO
                 </h3>
 
+
                 <p>
+
                     Gemeinsam für Bochum.
                     Gemeinsam für unsere Leidenschaft.
+
                 </p>
+
 
             </div>
 
 
+
             <div class="info-card highlight">
+
 
                 <span class="info-number">
                     02
                 </span>
 
+
                 <h3>
                     SAISON 5
                 </h3>
 
+
                 <p>
+
                     Alle besonderen Momente
-                    und Erinnerungen gesammelt an einem Ort.
+                    und Erinnerungen gesammelt
+                    an einem Ort.
+
                 </p>
+
 
             </div>
 
 
+
             <div class="info-card">
+
 
                 <span class="info-number">
                     03
                 </span>
 
+
                 <h3>
                     GEMEINSAM
                 </h3>
 
+
                 <p>
+
                     Unsere Bilder erzählen
                     unsere Geschichte.
+
                 </p>
+
 
             </div>
 
+
         </section>
 
+
     </main>
+
 
 
     <!-- =========================================
@@ -286,23 +497,42 @@
 
     <footer>
 
+
         <div class="footer-logo">
 
-            <img src="logo2_2.png" alt="Fanatico Bochum">
+
+            <img
+                src="logo2_2.png"
+                alt="Fanatico Bochum"
+            >
+
 
             <div>
-                <strong>FANATICO BOCHUM</strong>
-                <span>Leidenschaft seit Tag 1.</span>
+
+                <strong>
+                    FANATICO BOCHUM
+                </strong>
+
+
+                <span>
+                    Leidenschaft seit Tag 1.
+                </span>
+
             </div>
 
+
         </div>
+
 
         <p>
             © 2026 Fanatico Bochum
         </p>
 
+
     </footer>
 
 
+
 </body>
+
 </html>
