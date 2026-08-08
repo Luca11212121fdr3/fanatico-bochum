@@ -6,47 +6,57 @@
     box-sizing: border-box;
 }
 
+
 html {
     scroll-behavior: smooth;
 }
 
+
 :root {
 
     --blau: #009fe3;
-    --blau-hell: #29b6f6;
+
+    --blau-hell: #48c7ff;
+
     --blau-dunkel: #006da3;
 
     --nacht: #030914;
+
     --nacht-2: #061426;
+
     --nacht-3: #0a1d34;
 
     --weiss: #ffffff;
+
     --text: #d9e8f5;
 
     --border: rgba(0, 159, 227, 0.20);
 
-    --glow:
-        0 0 20px rgba(0, 159, 227, 0.25);
-
-    --glow-stark:
-        0 0 35px rgba(0, 159, 227, 0.40);
 }
+
+
+/* =========================================
+   BODY
+========================================= */
 
 body {
 
     margin: 0;
 
     background:
+
         radial-gradient(
             circle at 20% 10%,
             rgba(0, 159, 227, 0.13),
             transparent 35%
         ),
+
         radial-gradient(
             circle at 80% 40%,
             rgba(0, 100, 255, 0.08),
             transparent 30%
         ),
+
         var(--nacht);
 
     color: var(--weiss);
@@ -56,11 +66,12 @@ body {
     min-height: 100vh;
 
     overflow-x: hidden;
+
 }
 
 
 /* =========================================
-   DEZENTER HINTERGRUND
+   HINTERGRUNDBILD
 ========================================= */
 
 body::before {
@@ -74,10 +85,12 @@ body::before {
     pointer-events: none;
 
     background-image:
+
         linear-gradient(
             rgba(3, 9, 20, 0.88),
             rgba(3, 9, 20, 0.95)
         ),
+
         url("hintergrund.jpg");
 
     background-size: cover;
@@ -85,7 +98,13 @@ body::before {
     background-position: center;
 
     z-index: -2;
+
 }
+
+
+/* =========================================
+   HINTERGRUND GRID
+========================================= */
 
 body::after {
 
@@ -98,10 +117,12 @@ body::after {
     pointer-events: none;
 
     background-image:
+
         linear-gradient(
             rgba(255,255,255,0.018) 1px,
             transparent 1px
         ),
+
         linear-gradient(
             90deg,
             rgba(255,255,255,0.018) 1px,
@@ -111,6 +132,7 @@ body::after {
     background-size: 50px 50px;
 
     z-index: -1;
+
 }
 
 
@@ -122,15 +144,16 @@ body::after {
 
     position: relative;
 
-    min-height: 190px;
+    height: 250px;
 
     display: flex;
 
     align-items: center;
 
-    padding: 30px 7%;
+    padding: 25px 7%;
 
     background:
+
         linear-gradient(
             135deg,
             #061426 0%,
@@ -138,37 +161,48 @@ body::after {
             #020a14 100%
         );
 
-    border-bottom: 1px solid var(--border);
+    border-bottom: 3px solid var(--blau);
 
-    overflow: hidden;
+    box-shadow:
+        0 0 25px rgba(0,159,227,0.18);
+
+    overflow: visible;
+
+    z-index: 10;
+
 }
 
 
-/* Glow oben */
+/* =========================================
+   HEADER GLOW
+========================================= */
 
 .header-glow {
 
     position: absolute;
 
-    width: 500px;
+    width: 600px;
 
-    height: 500px;
+    height: 600px;
+
+    left: -250px;
+
+    top: -300px;
 
     background: var(--blau);
 
-    filter: blur(160px);
+    filter: blur(170px);
 
-    opacity: 0.12;
-
-    left: -200px;
-
-    top: -250px;
+    opacity: 0.14;
 
     pointer-events: none;
+
 }
 
 
-/* Lichtlinie */
+/* =========================================
+   LEUCHTLINIE
+========================================= */
 
 .header::after {
 
@@ -176,24 +210,31 @@ body::after {
 
     position: absolute;
 
-    bottom: 0;
-
     left: 0;
 
-    width: 45%;
+    bottom: -3px;
 
-    height: 2px;
+    width: 55%;
+
+    height: 3px;
 
     background:
+
         linear-gradient(
             90deg,
-            transparent,
             var(--blau),
+            #55caff,
             transparent
         );
 
     box-shadow:
-        0 0 15px var(--blau);
+
+        0 0 10px var(--blau),
+
+        0 0 30px rgba(0,159,227,0.7);
+
+    z-index: 20;
+
 }
 
 
@@ -205,7 +246,7 @@ body::after {
 
     width: 100%;
 
-    max-width: 1450px;
+    max-width: 1550px;
 
     margin: auto;
 
@@ -213,11 +254,12 @@ body::after {
 
     align-items: center;
 
-    gap: 35px;
+    gap: 50px;
 
     position: relative;
 
-    z-index: 2;
+    z-index: 30;
+
 }
 
 
@@ -227,6 +269,10 @@ body::after {
 
 .logo-link {
 
+    width: 175px;
+
+    height: 175px;
+
     display: flex;
 
     align-items: center;
@@ -235,39 +281,75 @@ body::after {
 
     flex-shrink: 0;
 
-    width: 125px;
+    position: relative;
 
-    height: 125px;
+    z-index: 50;
 
-    border-radius: 50%;
-
-    transition: 0.35s ease;
 }
+
 
 .logo {
 
-    width: 120px;
+    width: 175px;
 
-    height: 120px;
+    height: 175px;
 
     object-fit: contain;
 
     display: block;
 
-    filter:
-        drop-shadow(0 0 10px rgba(0,159,227,0.5))
-        drop-shadow(0 0 25px rgba(0,159,227,0.25));
+    /*
+       Das Logo ragt absichtlich
+       über die blaue Linie hinaus.
+    */
 
-    transition: 0.35s ease;
+    transform: translateY(15px);
+
+    filter:
+
+        drop-shadow(
+            0 0 12px rgba(0,159,227,0.75)
+        )
+
+        drop-shadow(
+            0 0 30px rgba(0,159,227,0.45)
+        )
+
+        drop-shadow(
+            0 0 60px rgba(0,159,227,0.18)
+        );
+
+    transition:
+
+        transform 0.35s ease,
+
+        filter 0.35s ease;
+
 }
+
 
 .logo-link:hover .logo {
 
-    transform: scale(1.07) rotate(-2deg);
+    transform:
+
+        translateY(15px)
+
+        scale(1.07);
 
     filter:
-        drop-shadow(0 0 12px rgba(0,159,227,0.8))
-        drop-shadow(0 0 35px rgba(0,159,227,0.5));
+
+        drop-shadow(
+            0 0 15px rgba(0,159,227,1)
+        )
+
+        drop-shadow(
+            0 0 40px rgba(0,159,227,0.65)
+        )
+
+        drop-shadow(
+            0 0 70px rgba(0,159,227,0.3)
+        );
+
 }
 
 
@@ -282,22 +364,37 @@ body::after {
     flex-direction: column;
 
     justify-content: center;
+
+    position: relative;
+
+    z-index: 40;
+
 }
+
 
 .kleiner-titel {
 
     font-family: 'Oswald', sans-serif;
 
-    color: var(--blau-hell);
+    color: #48c7ff;
 
-    font-size: 13px;
+    font-size: 15px;
 
     font-weight: 600;
 
-    letter-spacing: 5px;
+    letter-spacing: 7px;
 
-    margin-bottom: 4px;
+    margin-bottom: 5px;
+
+    text-shadow:
+        0 0 12px rgba(0,159,227,0.4);
+
 }
+
+
+/* =========================================
+   FANATICO BOCHUM
+========================================= */
 
 .header h1 {
 
@@ -305,38 +402,56 @@ body::after {
 
     font-family: 'Bebas Neue', sans-serif;
 
-    font-size: clamp(48px, 6vw, 82px);
+    font-size: clamp(
+        75px,
+        8vw,
+        125px
+    );
 
-    line-height: 0.85;
+    line-height: 0.78;
 
-    letter-spacing: 3px;
+    letter-spacing: 4px;
 
-    color: white;
+    color: #ffffff;
+
+    white-space: nowrap;
 
     text-shadow:
-        0 0 20px rgba(0,159,227,0.12);
+
+        0 0 20px rgba(255,255,255,0.08),
+
+        0 0 40px rgba(0,159,227,0.12);
+
 }
+
 
 .header h1 span {
 
     color: var(--blau);
 
-    margin-left: 8px;
+    margin-left: 15px;
 
     text-shadow:
-        0 0 15px rgba(0,159,227,0.45),
-        0 0 40px rgba(0,159,227,0.18);
+
+        0 0 10px rgba(0,159,227,0.8),
+
+        0 0 25px rgba(0,159,227,0.6),
+
+        0 0 50px rgba(0,159,227,0.3);
+
 }
+
 
 .header-text p {
 
-    margin: 12px 0 0;
+    margin: 15px 0 0;
 
-    color: #8ca6bc;
+    color: #8faec5;
 
-    font-size: 14px;
+    font-size: 15px;
 
-    letter-spacing: 1.5px;
+    letter-spacing: 2px;
+
 }
 
 
@@ -353,60 +468,70 @@ body::after {
     z-index: 100;
 
     background:
-        rgba(3, 10, 20, 0.88);
+        rgba(2, 9, 18, 0.92);
 
     backdrop-filter: blur(18px);
 
     -webkit-backdrop-filter: blur(18px);
 
-    border-bottom: 1px solid rgba(0,159,227,0.14);
+    border-bottom:
+        1px solid rgba(0,159,227,0.18);
+
+    box-shadow:
+        0 8px 30px rgba(0,0,0,0.25);
+
 }
+
 
 .nav-inhalt {
 
-    max-width: 1450px;
+    max-width: 1550px;
 
     margin: auto;
 
     padding: 0 7%;
 
-    height: 68px;
+    height: 70px;
 
     display: flex;
 
     align-items: center;
 
-    gap: 8px;
+    gap: 5px;
+
 }
+
 
 .nav-link {
 
     position: relative;
 
-    height: 68px;
+    height: 70px;
 
-    padding: 0 22px;
+    padding: 0 28px;
 
     display: flex;
 
     align-items: center;
 
-    gap: 10px;
+    gap: 12px;
 
-    color: #8da5b9;
+    color: #91a9bc;
 
     text-decoration: none;
 
     font-family: 'Oswald', sans-serif;
 
-    font-size: 15px;
+    font-size: 16px;
 
     font-weight: 600;
 
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
 
     transition: 0.3s ease;
+
 }
+
 
 .nav-link span {
 
@@ -414,20 +539,33 @@ body::after {
 
     color: var(--blau);
 
-    opacity: 0.8;
+    opacity: 0.9;
+
 }
+
 
 .nav-link:hover {
 
     color: white;
 
-    background: rgba(0,159,227,0.06);
+    background:
+        rgba(0,159,227,0.08);
+
+    text-shadow:
+        0 0 10px rgba(0,159,227,0.5);
+
 }
+
 
 .nav-link.aktiv {
 
     color: white;
+
+    background:
+        rgba(0,159,227,0.07);
+
 }
+
 
 .nav-link.aktiv::after {
 
@@ -446,8 +584,11 @@ body::after {
     background: var(--blau);
 
     box-shadow:
-        0 0 12px var(--blau),
-        0 0 25px rgba(0,159,227,0.5);
+
+        0 0 10px var(--blau),
+
+        0 0 25px rgba(0,159,227,0.6);
+
 }
 
 
@@ -460,6 +601,7 @@ body::after {
     width: min(1250px, 90%);
 
     margin: 55px auto 100px;
+
 }
 
 
@@ -481,9 +623,11 @@ body::after {
 
     border-radius: 18px;
 
-    border: 1px solid rgba(0,159,227,0.20);
+    border:
+        1px solid rgba(0,159,227,0.20);
 
     background:
+
         linear-gradient(
             120deg,
             rgba(7,27,49,0.98),
@@ -491,12 +635,13 @@ body::after {
         );
 
     box-shadow:
+
         0 25px 70px rgba(0,0,0,0.4),
+
         0 0 50px rgba(0,159,227,0.06);
+
 }
 
-
-/* blaues Licht */
 
 .hero-card::before {
 
@@ -519,10 +664,9 @@ body::after {
     right: -250px;
 
     top: -220px;
+
 }
 
-
-/* diagonale Linie */
 
 .hero-card::after {
 
@@ -543,7 +687,9 @@ body::after {
     right: -100px;
 
     bottom: 70px;
+
 }
+
 
 .hero-content {
 
@@ -554,7 +700,9 @@ body::after {
     width: 65%;
 
     padding: 60px;
+
 }
+
 
 .badge {
 
@@ -562,9 +710,11 @@ body::after {
 
     padding: 7px 13px;
 
-    border: 1px solid rgba(0,159,227,0.35);
+    border:
+        1px solid rgba(0,159,227,0.35);
 
-    background: rgba(0,159,227,0.08);
+    background:
+        rgba(0,159,227,0.08);
 
     color: var(--blau-hell);
 
@@ -579,7 +729,9 @@ body::after {
     border-radius: 4px;
 
     margin-bottom: 18px;
+
 }
+
 
 .hero-content h2 {
 
@@ -587,12 +739,15 @@ body::after {
 
     font-family: 'Bebas Neue', sans-serif;
 
-    font-size: clamp(55px, 7vw, 95px);
+    font-size:
+        clamp(55px, 7vw, 95px);
 
     line-height: 0.85;
 
     letter-spacing: 2px;
+
 }
+
 
 .hero-content h2 strong {
 
@@ -604,7 +759,9 @@ body::after {
 
     text-shadow:
         0 0 20px rgba(0,159,227,0.3);
+
 }
+
 
 .hero-content p {
 
@@ -617,10 +774,13 @@ body::after {
     line-height: 1.8;
 
     font-size: 15px;
+
 }
 
 
-/* Button */
+/* =========================================
+   HERO BUTTON
+========================================= */
 
 .hero-button {
 
@@ -652,14 +812,18 @@ body::after {
         0 0 20px rgba(0,159,227,0.2);
 
     transition: 0.3s ease;
+
 }
+
 
 .hero-button span {
 
     font-size: 20px;
 
     line-height: 10px;
+
 }
+
 
 .hero-button:hover {
 
@@ -668,12 +832,17 @@ body::after {
     background: #20b5f5;
 
     box-shadow:
+
         0 8px 30px rgba(0,159,227,0.35),
+
         0 0 30px rgba(0,159,227,0.25);
+
 }
 
 
-/* Hero Logo */
+/* =========================================
+   HERO LOGO
+========================================= */
 
 .hero-logo {
 
@@ -698,12 +867,15 @@ body::after {
     border-radius: 50%;
 
     background:
+
         radial-gradient(
             circle,
             rgba(0,159,227,0.14),
             transparent 65%
         );
+
 }
+
 
 .hero-logo img {
 
@@ -714,26 +886,37 @@ body::after {
     object-fit: contain;
 
     filter:
-        drop-shadow(0 0 15px rgba(0,159,227,0.55))
-        drop-shadow(0 0 45px rgba(0,159,227,0.20));
 
-    animation: logoGlow 4s ease-in-out infinite;
+        drop-shadow(
+            0 0 15px rgba(0,159,227,0.55)
+        )
+
+        drop-shadow(
+            0 0 45px rgba(0,159,227,0.20)
+        );
+
+    animation:
+        logoGlow 4s ease-in-out infinite;
+
 }
+
 
 @keyframes logoGlow {
 
-    0%, 100% {
+    0%,
+    100% {
         transform: scale(1);
     }
 
     50% {
         transform: scale(1.035);
     }
+
 }
 
 
 /* =========================================
-   INHALT / GALERIE
+   BILDER BEREICH
 ========================================= */
 
 .inhalt {
@@ -745,16 +928,19 @@ body::after {
     border-radius: 16px;
 
     background:
+
         linear-gradient(
             145deg,
             rgba(8,28,49,0.96),
             rgba(4,15,28,0.96)
         );
 
-    border: 1px solid rgba(0,159,227,0.15);
+    border:
+        1px solid rgba(0,159,227,0.15);
 
     box-shadow:
         0 20px 60px rgba(0,0,0,0.25);
+
 }
 
 
@@ -771,7 +957,9 @@ body::after {
     gap: 30px;
 
     margin-bottom: 45px;
+
 }
+
 
 .section-label {
 
@@ -788,7 +976,9 @@ body::after {
     letter-spacing: 3px;
 
     font-weight: 600;
+
 }
+
 
 .section-kopf h2 {
 
@@ -801,7 +991,9 @@ body::after {
     line-height: 0.9;
 
     letter-spacing: 2px;
+
 }
+
 
 .section-line {
 
@@ -812,11 +1004,13 @@ body::after {
     margin-bottom: 8px;
 
     background:
+
         linear-gradient(
             90deg,
             rgba(0,159,227,0.5),
             transparent
         );
+
 }
 
 
@@ -836,10 +1030,13 @@ body::after {
 
     padding-bottom: 28px;
 
-    border-bottom: 1px solid rgba(255,255,255,0.07);
+    border-bottom:
+        1px solid rgba(255,255,255,0.07);
 
     margin-bottom: 30px;
+
 }
+
 
 .saison-number {
 
@@ -852,7 +1049,9 @@ body::after {
     letter-spacing: 3px;
 
     font-weight: 600;
+
 }
+
 
 .saison-header h3 {
 
@@ -863,7 +1062,9 @@ body::after {
     font-size: 35px;
 
     letter-spacing: 1px;
+
 }
+
 
 .saison-header p {
 
@@ -872,6 +1073,7 @@ body::after {
     font-size: 13px;
 
     margin: 0;
+
 }
 
 
@@ -887,6 +1089,7 @@ body::after {
         repeat(3, 1fr);
 
     gap: 20px;
+
 }
 
 
@@ -910,7 +1113,8 @@ body::after {
 
     text-align: center;
 
-    border: 1px dashed rgba(0,159,227,0.25);
+    border:
+        1px dashed rgba(0,159,227,0.25);
 
     border-radius: 12px;
 
@@ -918,18 +1122,23 @@ body::after {
         rgba(0,159,227,0.025);
 
     transition: 0.3s ease;
+
 }
+
 
 .empty-gallery:hover {
 
-    border-color: rgba(0,159,227,0.5);
+    border-color:
+        rgba(0,159,227,0.5);
 
     background:
         rgba(0,159,227,0.05);
 
     box-shadow:
         inset 0 0 40px rgba(0,159,227,0.03);
+
 }
+
 
 .empty-icon {
 
@@ -945,7 +1154,8 @@ body::after {
 
     border-radius: 50%;
 
-    border: 1px solid rgba(0,159,227,0.4);
+    border:
+        1px solid rgba(0,159,227,0.4);
 
     color: var(--blau);
 
@@ -957,7 +1167,9 @@ body::after {
 
     box-shadow:
         0 0 20px rgba(0,159,227,0.1);
+
 }
+
 
 .empty-gallery h4 {
 
@@ -968,7 +1180,9 @@ body::after {
     font-size: 18px;
 
     letter-spacing: 2px;
+
 }
+
 
 .empty-gallery p {
 
@@ -977,6 +1191,7 @@ body::after {
     color: #71899d;
 
     font-size: 13px;
+
 }
 
 
@@ -994,12 +1209,15 @@ body::after {
 
     border-radius: 10px;
 
-    border: 1px solid rgba(0,159,227,0.15);
+    border:
+        1px solid rgba(0,159,227,0.15);
 
     background: #071524;
 
     cursor: pointer;
+
 }
+
 
 .bild img {
 
@@ -1012,7 +1230,9 @@ body::after {
     display: block;
 
     transition: 0.5s ease;
+
 }
+
 
 .bild::after {
 
@@ -1023,18 +1243,23 @@ body::after {
     inset: 0;
 
     background:
+
         linear-gradient(
             transparent 45%,
             rgba(0,0,0,0.9)
         );
 
     pointer-events: none;
+
 }
+
 
 .bild:hover img {
 
     transform: scale(1.07);
+
 }
+
 
 .bild-info {
 
@@ -1045,7 +1270,9 @@ body::after {
     bottom: 18px;
 
     z-index: 2;
+
 }
+
 
 .bild-info span {
 
@@ -1060,18 +1287,259 @@ body::after {
     text-transform: uppercase;
 
     margin-bottom: 5px;
+
 }
+
 
 .bild-info strong {
 
     font-family: 'Oswald', sans-serif;
 
     font-size: 18px;
+
 }
 
 
 /* =========================================
-   INFO CARDS
+   AKTUELLES
+========================================= */
+
+.aktuelles {
+
+    margin-top: 25px;
+
+    padding: 45px;
+
+    border-radius: 16px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(8,28,49,0.96),
+            rgba(4,15,28,0.96)
+        );
+
+    border:
+        1px solid rgba(0,159,227,0.15);
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.25);
+
+}
+
+
+/* =========================================
+   NEWS CARD
+========================================= */
+
+.news-card {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+
+    padding: 28px 30px;
+
+    border-radius: 12px;
+
+    background:
+
+        linear-gradient(
+            100deg,
+            rgba(0,159,227,0.10),
+            rgba(0,159,227,0.025)
+        );
+
+    border:
+        1px solid rgba(0,159,227,0.22);
+
+    overflow: hidden;
+
+    transition: 0.3s ease;
+
+}
+
+
+.news-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    top: 0;
+
+    bottom: 0;
+
+    width: 4px;
+
+    background: var(--blau);
+
+    box-shadow:
+
+        0 0 15px var(--blau),
+
+        0 0 30px rgba(0,159,227,0.5);
+
+}
+
+
+.news-card:hover {
+
+    transform: translateY(-4px);
+
+    border-color:
+        rgba(0,159,227,0.45);
+
+    box-shadow:
+
+        0 15px 40px rgba(0,0,0,0.3),
+
+        0 0 30px rgba(0,159,227,0.08);
+
+}
+
+
+/* =========================================
+   NEWS ICON
+========================================= */
+
+.news-icon {
+
+    width: 58px;
+
+    height: 58px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(0,159,227,0.12);
+
+    border:
+        1px solid rgba(0,159,227,0.35);
+
+    color: var(--blau);
+
+    font-size: 22px;
+
+    box-shadow:
+        0 0 20px rgba(0,159,227,0.12);
+
+}
+
+
+/* =========================================
+   NEWS TEXT
+========================================= */
+
+.news-content {
+
+    flex: 1;
+
+}
+
+
+.news-label {
+
+    color: var(--blau);
+
+    font-family: 'Oswald', sans-serif;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+}
+
+
+.news-content h3 {
+
+    margin: 5px 0 7px;
+
+    font-family: 'Bebas Neue', sans-serif;
+
+    font-size: 32px;
+
+    letter-spacing: 1px;
+
+}
+
+
+.news-content p {
+
+    margin: 0;
+
+    color: #8199ac;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+}
+
+
+/* =========================================
+   NEWS PFEIL
+========================================= */
+
+.news-arrow {
+
+    width: 45px;
+
+    height: 45px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    border:
+        1px solid rgba(0,159,227,0.25);
+
+    color: var(--blau);
+
+    font-size: 20px;
+
+    transition: 0.3s ease;
+
+}
+
+
+.news-card:hover .news-arrow {
+
+    background: var(--blau);
+
+    color: white;
+
+    box-shadow:
+        0 0 20px rgba(0,159,227,0.35);
+
+    transform: translateX(4px);
+
+}
+
+
+/* =========================================
+   INFO KARTEN
 ========================================= */
 
 .info-grid {
@@ -1084,7 +1552,9 @@ body::after {
     gap: 20px;
 
     margin-top: 25px;
+
 }
+
 
 .info-card {
 
@@ -1099,22 +1569,28 @@ body::after {
     background:
         rgba(6,21,37,0.9);
 
-    border: 1px solid rgba(255,255,255,0.06);
+    border:
+        1px solid rgba(255,255,255,0.06);
 
     border-radius: 12px;
 
     transition: 0.3s ease;
+
 }
+
 
 .info-card:hover {
 
     transform: translateY(-5px);
 
-    border-color: rgba(0,159,227,0.3);
+    border-color:
+        rgba(0,159,227,0.3);
 
     box-shadow:
         0 15px 40px rgba(0,0,0,0.3);
+
 }
+
 
 .info-card.highlight {
 
@@ -1122,6 +1598,7 @@ body::after {
         rgba(0,159,227,0.25);
 
     background:
+
         linear-gradient(
             145deg,
             rgba(0,159,227,0.10),
@@ -1130,7 +1607,9 @@ body::after {
 
     box-shadow:
         0 0 35px rgba(0,159,227,0.05);
+
 }
+
 
 .info-number {
 
@@ -1141,7 +1620,9 @@ body::after {
     font-size: 45px;
 
     line-height: 1;
+
 }
+
 
 .info-card h3 {
 
@@ -1152,7 +1633,9 @@ body::after {
     letter-spacing: 1px;
 
     font-size: 20px;
+
 }
+
 
 .info-card p {
 
@@ -1163,6 +1646,7 @@ body::after {
     font-size: 13px;
 
     line-height: 1.7;
+
 }
 
 
@@ -1184,10 +1668,13 @@ footer {
 
     background: #020810;
 
-    border-top: 1px solid rgba(0,159,227,0.12);
+    border-top:
+        1px solid rgba(0,159,227,0.12);
 
     color: #63798c;
+
 }
+
 
 .footer-logo {
 
@@ -1196,7 +1683,9 @@ footer {
     align-items: center;
 
     gap: 15px;
+
 }
+
 
 .footer-logo img {
 
@@ -1207,8 +1696,12 @@ footer {
     object-fit: contain;
 
     filter:
-        drop-shadow(0 0 8px rgba(0,159,227,0.4));
+        drop-shadow(
+            0 0 8px rgba(0,159,227,0.4)
+        );
+
 }
+
 
 .footer-logo strong {
 
@@ -1221,7 +1714,9 @@ footer {
     font-size: 14px;
 
     letter-spacing: 1px;
+
 }
+
 
 .footer-logo span {
 
@@ -1232,13 +1727,16 @@ footer {
     font-size: 11px;
 
     color: #61788c;
+
 }
+
 
 footer > p {
 
     margin: 0;
 
     font-size: 12px;
+
 }
 
 
@@ -1248,11 +1746,13 @@ footer > p {
 
 @media (max-width: 900px) {
 
+
     .header {
 
         padding: 25px 5%;
 
     }
+
 
     .nav-inhalt {
 
@@ -1260,11 +1760,13 @@ footer > p {
 
     }
 
+
     .hauptbereich {
 
         width: 92%;
 
     }
+
 
     .hero-content {
 
@@ -1274,6 +1776,7 @@ footer > p {
 
     }
 
+
     .hero-logo {
 
         opacity: 0.35;
@@ -1282,11 +1785,14 @@ footer > p {
 
     }
 
+
     .bildergalerie {
 
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns:
+            repeat(2, 1fr);
 
     }
+
 
     .info-grid {
 
@@ -1303,35 +1809,42 @@ footer > p {
 
 @media (max-width: 650px) {
 
+
     .header {
 
-        min-height: 140px;
+        height: 180px;
 
         padding: 20px;
 
     }
 
+
     .header-inhalt {
 
-        gap: 18px;
+        gap: 15px;
 
     }
+
 
     .logo-link {
 
-        width: 80px;
+        width: 90px;
 
-        height: 80px;
+        height: 90px;
 
     }
+
 
     .logo {
 
-        width: 75px;
+        width: 100px;
 
-        height: 75px;
+        height: 100px;
+
+        transform: translateY(10px);
 
     }
+
 
     .kleiner-titel {
 
@@ -1341,13 +1854,17 @@ footer > p {
 
     }
 
+
     .header h1 {
 
-        font-size: 38px;
+        font-size: 48px;
 
-        letter-spacing: 1px;
+        line-height: 0.82;
+
+        white-space: normal;
 
     }
+
 
     .header h1 span {
 
@@ -1355,9 +1872,10 @@ footer > p {
 
         margin-left: 0;
 
-        margin-top: 3px;
+        margin-top: 4px;
 
     }
+
 
     .header-text p {
 
@@ -1366,36 +1884,31 @@ footer > p {
     }
 
 
-    /* Navigation */
+    /* NAVIGATION */
+
 
     .nav-inhalt {
 
-        height: 58px;
+        height: 60px;
 
-        padding: 0 12px;
+        padding: 0 10px;
 
     }
+
 
     .nav-link {
 
-        height: 58px;
+        height: 60px;
 
-        padding: 0 12px;
+        padding: 0 15px;
 
-        font-size: 12px;
-
-    }
-
-    .nav-link.aktiv::after {
-
-        left: 12px;
-
-        right: 12px;
+        font-size: 13px;
 
     }
 
 
-    /* Hauptbereich */
+    /* HAUPTBEREICH */
+
 
     .hauptbereich {
 
@@ -1406,13 +1919,15 @@ footer > p {
     }
 
 
-    /* Hero */
+    /* HERO */
+
 
     .hero-card {
 
         min-height: 450px;
 
     }
+
 
     .hero-content {
 
@@ -1422,17 +1937,20 @@ footer > p {
 
     }
 
+
     .hero-content h2 {
 
         font-size: 62px;
 
     }
 
+
     .hero-content p {
 
         font-size: 13px;
 
     }
+
 
     .hero-logo {
 
@@ -1450,6 +1968,7 @@ footer > p {
 
     }
 
+
     .hero-logo img {
 
         width: 180px;
@@ -1459,7 +1978,8 @@ footer > p {
     }
 
 
-    /* Inhalt */
+    /* INHALT */
+
 
     .inhalt {
 
@@ -1469,11 +1989,13 @@ footer > p {
 
     }
 
+
     .section-kopf {
 
         display: block;
 
     }
+
 
     .section-line {
 
@@ -1481,17 +2003,20 @@ footer > p {
 
     }
 
+
     .section-kopf h2 {
 
         font-size: 48px;
 
     }
 
+
     .saison-header {
 
         display: block;
 
     }
+
 
     .saison-header p {
 
@@ -1500,7 +2025,8 @@ footer > p {
     }
 
 
-    /* Galerie */
+    /* GALERIE */
+
 
     .bildergalerie {
 
@@ -1509,7 +2035,41 @@ footer > p {
     }
 
 
-    /* Footer */
+    /* AKTUELLES */
+
+
+    .aktuelles {
+
+        padding: 30px 20px;
+
+    }
+
+
+    .news-card {
+
+        padding: 22px;
+
+    }
+
+
+    .news-arrow {
+
+        display: none;
+
+    }
+
+
+    .news-icon {
+
+        width: 45px;
+
+        height: 45px;
+
+    }
+
+
+    /* FOOTER */
+
 
     footer {
 
