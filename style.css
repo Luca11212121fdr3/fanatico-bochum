@@ -1,61 +1,418 @@
+/* =========================================
+   GRUNDEINSTELLUNGEN
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #e9e9e9;
-    color: #222;
+
+    font-family: 'Montserrat', sans-serif;
+
+    color: #111;
+
+    /*
+    =========================================
+    HINTERGRUNDBILD
+    =========================================
+
+    Lege dein Bild später als
+
+    hintergrund.jpg
+
+    in dein GitHub-Repository.
+
+    Dann wird es automatisch verwendet.
+    */
+
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.25),
+            rgba(0, 0, 0, 0.25)
+        ),
+        url("hintergrund.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-attachment: fixed;
+
+    background-repeat: no-repeat;
+
+    min-height: 100vh;
 }
 
-header {
+
+/* =========================================
+   HEADER
+========================================= */
+
+.header {
+
     background: white;
-    padding: 20px 40px;
-}
 
-.logo-container {
+    width: 100%;
+
+    height: 125px;
+
     display: flex;
+
     align-items: center;
-    gap: 20px;
+
+    padding: 10px 50px;
+
 }
 
-.logo-container img {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
+
+/* Logo + Überschrift */
+
+.logo-bereich {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 30px;
+
 }
 
-.logo-container h1 {
-    color: #0b5d3b;
-    font-size: 32px;
+
+/* =========================================
+   LOGO
+========================================= */
+
+.logo {
+
+    /*
+    Wichtig:
+
+    Höhe wird festgelegt,
+    Breite bleibt automatisch.
+
+    Dadurch wird das Logo NICHT gequetscht.
+    */
+
+    height: 100px;
+
+    width: auto;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+
+/* =========================================
+   TITEL
+========================================= */
+
+.header h1 {
+
     margin: 0;
+
+    color: #009fe3;
+
+    font-family: 'Bebas Neue', sans-serif;
+
+    font-size: 42px;
+
+    letter-spacing: 2px;
+
 }
 
-nav {
-    background: #0b5d3b;
-    padding: 15px 40px;
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+.navigation {
+
+    width: 100%;
+
+    background: #009fe3;
+
+    min-height: 55px;
+
 }
 
-nav a {
+
+.nav-inhalt {
+
+    max-width: 1400px;
+
+    margin: auto;
+
+    padding: 0 40px;
+
+    display: flex;
+
+    align-items: center;
+
+    height: 55px;
+
+}
+
+
+.navigation a {
+
     color: white;
+
     text-decoration: none;
-    font-weight: bold;
+
+    font-family: 'Roboto Condensed', sans-serif;
+
     font-size: 18px;
+
+    font-weight: 700;
+
+    transition: 0.2s;
+
 }
 
-main {
-    max-width: 900px;
-    margin: 40px auto;
-    background: white;
+
+.navigation a:hover {
+
+    opacity: 0.75;
+
+}
+
+
+/* =========================================
+   HAUPTBEREICH
+========================================= */
+
+.hauptbereich {
+
+    max-width: 1100px;
+
+    margin: 45px auto;
+
+    padding: 0 20px;
+
+}
+
+
+/* Weißer Inhaltskasten */
+
+.inhalt {
+
+    background: rgba(255, 255, 255, 0.96);
+
     padding: 40px;
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+
 }
 
-h2 {
-    color: #0b5d3b;
+
+/* =========================================
+   ÜBERSCHRIFT "BILDER"
+========================================= */
+
+.inhalt h2 {
+
+    margin: 0;
+
+    color: #009fe3;
+
+    font-family: 'Bebas Neue', sans-serif;
+
+    font-size: 38px;
+
+    letter-spacing: 1px;
+
 }
 
-h3 {
+
+/* Linie */
+
+.trennlinie {
+
+    height: 2px;
+
+    background: #dddddd;
+
+    width: 100%;
+
+    margin: 18px 0 28px 0;
+
+}
+
+
+/* =========================================
+   SAISON 5
+========================================= */
+
+.inhalt h3 {
+
+    margin-top: 0;
+
+    margin-bottom: 10px;
+
+    font-family: 'Roboto Condensed', sans-serif;
+
+    font-size: 25px;
+
+    font-weight: 700;
+
+}
+
+
+.inhalt p {
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+
+}
+
+
+/* =========================================
+   BILDERGALERIE
+========================================= */
+
+.bildergalerie {
+
     margin-top: 30px;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+
 }
 
-hr {
-    border: 0;
-    border-top: 2px solid #ddd;
+
+.bildergalerie img {
+
+    width: 100%;
+
+    height: 230px;
+
+    object-fit: cover;
+
+    display: block;
+
+    border-radius: 3px;
+
+    transition: 0.3s;
+
+}
+
+
+.bildergalerie img:hover {
+
+    transform: scale(1.03);
+
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+
+    text-align: center;
+
+    color: white;
+
+    padding: 30px;
+
+    font-size: 14px;
+
+}
+
+
+/* =========================================
+   HANDY
+========================================= */
+
+@media (max-width: 700px) {
+
+    .header {
+
+        height: auto;
+
+        padding: 15px 20px;
+
+    }
+
+
+    .logo-bereich {
+
+        gap: 15px;
+
+    }
+
+
+    .logo {
+
+        height: 75px;
+
+    }
+
+
+    .header h1 {
+
+        font-size: 27px;
+
+        letter-spacing: 1px;
+
+    }
+
+
+    .nav-inhalt {
+
+        padding: 0 20px;
+
+    }
+
+
+    .hauptbereich {
+
+        margin: 25px auto;
+
+        padding: 0 12px;
+
+    }
+
+
+    .inhalt {
+
+        padding: 25px 20px;
+
+    }
+
+
+    .inhalt h2 {
+
+        font-size: 32px;
+
+    }
+
+
+    .bildergalerie {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .bildergalerie img {
+
+        height: auto;
+
+    }
+
 }
